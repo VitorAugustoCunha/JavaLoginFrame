@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class Interfaces{
+public class login(){
 	
 	JFrame logPrincipal;
 	JButton logButton;
