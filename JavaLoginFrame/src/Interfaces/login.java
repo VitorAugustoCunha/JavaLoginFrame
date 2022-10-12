@@ -3,7 +3,7 @@ package Interfaces;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import Telas.cadastro;
+import Interfaces.cadastro;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
