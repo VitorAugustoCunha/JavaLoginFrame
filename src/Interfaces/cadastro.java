@@ -2,16 +2,16 @@ package Interfaces;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import Telas.login;
 
 
 public class cadastro {
 
     String nomeTF;
     String senhaTF;
-
+    JFrame cadastro;
 
     public cadastro() {
-
         JFrame cadastro = new JFrame();
         cadastro.setSize(500, 500);
         cadastro.getContentPane().setLayout(new FlowLayout());
@@ -31,25 +31,24 @@ public class cadastro {
         cadastro.add(senha);
         cadastro.add(senhaArea);
         cadastro.add(cadastrar);
-        cadastro.setVisible(true);
 
         cadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 if (!loginArea.getText().equals("") & !senhaArea.getText().equals("")){
-
+                	
                     nomeTF = loginArea.getText();
                     senhaTF = senhaArea.getText();
 
                     JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-                    cadastro.setVisible(false);
-
                     System.out.println("Login: " + loginArea.getText() + "\nSenha: " + senhaArea.getText());
-
+                    
+                    /*login log = new login();
+                    cadastro.setVisible(false);
+                    log.logPrincipal.setVisible(true);*/
                 } else { JOptionPane.showMessageDialog(null, "Verifique se não está faltando algo em algum dos campos!!");}
             }
         });
-
-
+    	
     }
 }
