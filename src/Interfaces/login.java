@@ -95,19 +95,5 @@ public class login {
 		
 		
 	}
-	
-	public JFrame getLogPrincipal() {
-		return logPrincipal;
-	}
-
-	public void setLogPrincipal(JFrame logPrincipal) {
-		this.logPrincipal = logPrincipal;
-	}
-	
-	public void trueFrame() {
-		this.logPrincipal.setVisible(true);
-	}
-		
-
 }
 
