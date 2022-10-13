@@ -1,57 +1,113 @@
-package Interfaces;
+package Telas;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
-import Telas.login;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class cadastro {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-    static String nomeTF;
-    static String senhaTF;
-    static JFrame cadastro;
+public class login {
+	
+	private JFrame logPrincipal;
 
-	public cadastro() {
-        JFrame cadastro = new JFrame();
-        cadastro.setSize(500, 500);
-        cadastro.getContentPane().setLayout(new FlowLayout());
+	JButton logButton;
+	JLabel nome, senha;
+	
 
-        JTextArea login = new JTextArea("Login: ");
-        login.setEditable(false);
-        JTextField loginArea = new JTextField(15);
+	JTextField nomeTF, senhaTF;
+	Container cont;
+	String nomeConfirm, senhaConfirm;
+	Font tituloFonte = new Font("Times New Roman", Font.PLAIN, 15);
+	
+	public login() {
+		JFrame logPrincipal = new JFrame();
+		logPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton cadButton = new JButton("Cadastro");
+		cadButton.setFont(tituloFonte);
+		
+		JButton logButton = new JButton("Login");
+		logButton.setFont(tituloFonte);
+		
+		
+		JTextArea nome = new JTextArea("Nome: ");
+		nome.setFont(tituloFonte);
+		nome.setEditable(false);
+		
+		JTextArea senha = new JTextArea("Senha: ");
+		senha.setFont(tituloFonte);
+		senha.setEditable(false);
+		
+ 		JTextField senhaTF = new JTextField(15);
+ 		
+ 		senhaTF.setFont(tituloFonte);
+ 		
+ 		JTextField nomeTF = new JTextField(15);
+ 		nomeTF.setFont(tituloFonte);
+ 		
+ 		cont = logPrincipal.getContentPane();
+ 		cont.setLayout(new FlowLayout());
+		
+		logPrincipal.setSize(500,500);
+		logPrincipal.add(nome);
+		logPrincipal.add(nomeTF);
+		logPrincipal.add(senha);
+		logPrincipal.add(senhaTF);	
+		logPrincipal.add(logButton);
+		logPrincipal.setVisible(true);
 
-        JTextArea senha = new JTextArea("Senha: ");
-        senha.setEditable(false);
-        JTextField senhaArea = new JTextField(15);
+		//cont.add(cadButton);
 
-        JButton cadastrar = new JButton("Cadastrar");
 
-        cadastro.add(login);
-        cadastro.add(loginArea);
-        cadastro.add(senha);
-        cadastro.add(senhaArea);
-        cadastro.add(cadastrar);
-        cadastro.setVisible(true);
+		nomeConfirm = nomeTF.getText();
+		
+		senhaConfirm = senhaTF.getText();
+		
+		
+		
+		logButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (nomeTF.getText().equals(cadastro.nomeTF) && senhaTF.getText().equals(cadastro.senhaTF)){
+					JOptionPane.showMessageDialog(null, "Loagado com sucesso");
+				} 
+				else {
+						JOptionPane.showMessageDialog(null, "Algo de errado");
+				}
 
-        cadastrar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+				}
+				
+			});
+		/* cadButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				logPrincipal.setVisible(false);
+				fodase.cadastro.setVisible(true);
+				
+			}
+		});
+		*/
+		
+		
+	}
+	
+	public JFrame getLogPrincipal() {
+		return logPrincipal;
+	}
 
-                if (!loginArea.getText().equals("") & !senhaArea.getText().equals("")){
-                	
-                    nomeTF = loginArea.getText();
-                    senhaTF = senhaArea.getText();
+	public void setLogPrincipal(JFrame logPrincipal) {
+		this.logPrincipal = logPrincipal;
+	}
+	
+	public void trueFrame() {
+		this.logPrincipal.setVisible(true);
+	}
+		
 
-                    JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-                    System.out.println("Login: " + loginArea.getText() + "\nSenha: " + senhaArea.getText());
-                    cadastro.setVisible(false);
-                    login log = new login();
-                    
-                    /*login log = new login();
-                    cadastro.setVisible(false);
-                    log.logPrincipal.setVisible(true);*/
-                } else { JOptionPane.showMessageDialog(null, "Verifique se não está faltando algo em algum dos campos!!");}
-            }
-        });
-    	
-    }
 }
+
