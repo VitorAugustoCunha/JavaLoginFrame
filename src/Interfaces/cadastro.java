@@ -1,17 +1,16 @@
-package Interfaces;
+package Telas;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import Telas.login;
 
-
 public class cadastro {
 
-    String nomeTF;
-    String senhaTF;
-    JFrame cadastro;
+    static String nomeTF;
+    static String senhaTF;
+    static JFrame cadastro;
 
-    public cadastro() {
+	public cadastro() {
         JFrame cadastro = new JFrame();
         cadastro.setSize(500, 500);
         cadastro.getContentPane().setLayout(new FlowLayout());
@@ -31,6 +30,7 @@ public class cadastro {
         cadastro.add(senha);
         cadastro.add(senhaArea);
         cadastro.add(cadastrar);
+        cadastro.setVisible(true);
 
         cadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -42,6 +42,8 @@ public class cadastro {
 
                     JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
                     System.out.println("Login: " + loginArea.getText() + "\nSenha: " + senhaArea.getText());
+                    cadastro.setVisible(false);
+                    login log = new login();
                     
                     /*login log = new login();
                     cadastro.setVisible(false);
